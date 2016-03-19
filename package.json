@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "giphy-api": "1.1.15",
+        "express": ""
+    }
+}
