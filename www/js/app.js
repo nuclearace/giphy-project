@@ -3,7 +3,7 @@
 
     angular
         .module('giphy-slideshow', [
-            'GiphyController',
-            'GiphyService'
-        ]);
+            'giphyControllers',
+            'giphyServices'
+        ])
 })()

@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="giphy-slideshow">
   <head>
     <title>Giphy Slideshow</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
@@ -7,7 +7,7 @@
     <script src="/www/js/controller.js"></script>
     <script src="/www/js/service.js"></script>
   </head>
-  <body>
-      Hello World
+  <body ng-controller="GiphyController">
+      {{test}}
   </body>
 </html>

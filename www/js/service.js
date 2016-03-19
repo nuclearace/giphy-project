@@ -2,17 +2,13 @@
     'use strict'
 
     angular
-        .module('giphy-slideshow')
+        .module('giphyServices', [])
         .service('GiphyService', GiphyService)
 
     GiphyService.$inject = ['$http']
 
     /* @ngInject */
     function GiphyService($http) {
-        this.function = function
 
-        function function() {
-
-        }
     }
-})();
+})()

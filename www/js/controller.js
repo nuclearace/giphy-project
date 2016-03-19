@@ -2,13 +2,15 @@
     'use strict'
 
     angular
-        .module('giphy-slideshow')
+        .module('giphyControllers', [])
         .controller('GiphyController', GiphyController)
 
-    GiphyController.$inject = []
+    GiphyController.$inject = ['$scope', 'GiphyService']
 
     /* @ngInject */
-    function GiphyController() {
+    function GiphyController($scope, GiphyService) {
         var self = this
+
+        $scope.test = 'hello'
     }
 })()
