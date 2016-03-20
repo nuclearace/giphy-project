@@ -15,7 +15,9 @@
 
     GiphySearchController.prototype.search = function(form) {
         if (form.$valid) {
-            var searchValue = form.searchText.$viewValue
+            var searchTerm = form.searchText.$viewValue
+
+            this.searchService.search(searchTerm)
         }
     }
 

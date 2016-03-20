@@ -29,4 +29,12 @@ server.get(/www/, (req, res) => {
     })
 })
 
+server.get(/search/, (req, res) => {
+    var path = req.path.split('/')
+    var searchTerm = path[path.length - 1]
+
+    console.log(searchTerm)
+    res.end(searchTerm)
+})
+
 server.listen(8080)
