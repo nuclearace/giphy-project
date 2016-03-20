@@ -15,10 +15,11 @@ server.get('/', (req, res) => {
     })
 })
 
-server.get(/www\/js\//, (req, res) => {
+server.get(/www/, (req, res) => {
+    console.log('serving ' + req.path)
     fs.readFile('.' + req.path, (err, data) => {
         if (err !== null) {
-            console.log('Error reading index page')
+            console.log('Error reading file')
             res.statusCode = 500
             res.end('Error')
         } else {

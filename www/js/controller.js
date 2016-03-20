@@ -1,16 +1,27 @@
 (function() {
     'use strict'
 
-    angular
-        .module('giphyControllers', [])
-        .controller('GiphyController', GiphyController)
+    var controllers = angular.module('giphyControllers', [])
 
-    GiphyController.$inject = ['$scope', 'GiphyService']
+    controllers.controller('GiphySearchController', GiphySearchController)
+    controllers.controller('GiphySlideshowController', GiphySlideshowController)
 
-    /* @ngInject */
-    function GiphyController($scope, GiphyService) {
+    GiphySearchController.$inject = ['$scope', 'GiphyService']
+    GiphySlideshowController.$inject = ['$scope', 'GiphyService']
+
+    function GiphySearchController($scope, GiphyService) {
+        this.searchService = GiphyService
+    }
+
+    GiphySearchController.prototype.search = function(form) {
+        if (form.$valid) {
+            var searchValue = form.searchText.$viewValue
+        }
+    }
+
+    function GiphySlideshowController($scope, GiphyService) {
         var self = this
 
-        $scope.test = 'hello'
+
     }
 })()
