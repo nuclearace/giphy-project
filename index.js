@@ -36,7 +36,7 @@ server.get(/search/, (req, res) => {
     giphy.search(searchTerm, (err, giphyRes) => {
         if (err !== null) {
             console.log('error searching giphy')
-            res.end("error")
+            res.end('error')
         } else if (giphyRes.data.length !== 0) {
             var images = giphyRes.data.map((image) => { return image.images }).map((image) => { return image.original.url })
             res.end(JSON.stringify(images))

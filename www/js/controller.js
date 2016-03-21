@@ -15,25 +15,27 @@
 
         $scope.previous = () => {
             console.log('showing previous')
-            if ($scope.current === 0) {
+            if ($scope.currentIndex === 0) {
                 return $scope.results[0]
             } else {
-                $scope.current -= 1
-                return $scope.results[$scope.current]
+                $scope.currentIndex -= 1
+                $scope.current = $scope.results[$scope.currentIndex]
             }
         }
 
         $scope.next = () => {
             console.log('showing next')
-            if ($scope.current === $scope.results.length - 1) {
-                return $scope.results[$scope.current]
+            if ($scope.currentIndex === $scope.results.length - 1) {
+                return
             } else {
-                $scope.current += 1
-                return $scope.results[$scope.current]
+                $scope.currentIndex += 1
+                $scope.current = $scope.results[$scope.currentIndex]
+                console.log($scope.current)
             }
         }
 
-        $scope.current = 0
+        $scope.current = $scope.results[0]
+        $scope.currentIndex = 0
     }
 
     GiphySearchController.prototype.search = function() {
@@ -42,12 +44,10 @@
         if (this.searchText !== '') {
             this.searchService.search(this.searchText).then(results => {
                 self.$scope.results = results
-                console.log(results)
+                self.$scope.current = self.$scope.results[0]
+                self.$scope.currentIndex = 0
+                self.$scope.$apply()
             })
         }
-    }
-
-    GiphySearchController.prototype.previous = function () {
-
     }
 })()
