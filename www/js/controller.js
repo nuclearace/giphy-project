@@ -6,22 +6,25 @@
     controllers.controller('GiphySearchController', GiphySearchController)
     controllers.controller('GiphySlideshowController', GiphySlideshowController)
 
-    GiphySearchController.$inject = ['$scope', 'GiphyService']
-    GiphySlideshowController.$inject = ['$scope', 'GiphyService']
+    GiphySearchController.$inject = ['$scope', '$location', 'GiphyService']
+    GiphySlideshowController.$inject = ['$scope', '$location', 'GiphyService']
 
-    function GiphySearchController($scope, GiphyService) {
+    function GiphySearchController($scope, $location, GiphyService) {
         this.searchService = GiphyService
+        this.$location = $location
     }
 
     GiphySearchController.prototype.search = function(form) {
         if (form.$valid) {
             var searchTerm = form.searchText.$viewValue
 
-            this.searchService.search(searchTerm)
+            this.searchService.search(searchTerm).then(results => {
+                console.log(results)
+            })
         }
     }
 
-    function GiphySlideshowController($scope, GiphyService) {
+    function GiphySlideshowController($scope, $location, GiphyService) {
         var self = this
 
 

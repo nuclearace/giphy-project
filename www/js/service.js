@@ -13,9 +13,13 @@
     }
 
     GiphyService.prototype.search = function(term) {
-        console.log(term)
-        this.$http.get('search/' + term).success(data => {
-            console.log(data)
+        var promise = new Promise((resolve, reject) => {
+            console.log(term)
+            this.$http.get('search/' + term).then(data => {
+                resolve(data.data)
+            }, () => { reject() })
         })
+
+        return promise
     }
 })()
