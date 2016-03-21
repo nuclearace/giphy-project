@@ -11,11 +11,9 @@
     <script src="/www/js/controller.js"></script>
     <script src="/www/js/service.js"></script>
   </head>
-  <body ng-controller="GiphySearchController as search">
-      <div class="container-fluid">Search Giphy</div>
-      <form name="searchForm">
-          <input type="text" ng-model="search.text" name="searchText" value="">
-          <button class="btn" ng-click="search.search(searchForm)">Search Giphy</button>
-      </form>
+  <body>
+      <div ng-view>
+
+      </div>
   </body>
 </html>
