@@ -6,14 +6,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.4/ui-bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.5/ui-bootstrap-tpls.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-route.min.js"></script>
     <script src="/www/js/app.js"></script>
     <script src="/www/js/controller.js"></script>
     <script src="/www/js/service.js"></script>
   </head>
-  <body>
-      <div ng-view>
-
-      </div>
+  <body ng-controller="GiphySearchController as slideshow">
+      <div ng-include src="'www/partials/nav.html'"></div>
+      <div ng-include src="'www/partials/slideshow.html'"></div>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="#">Giphy Slideshow</a>
+	</div>
+    <ul class="nav navbar-nav">
+        <li><div class="btn btn-default" ng-click="previous()"><i class="glyphicon glyphicon-circle-arrow-left"></i></div></li>
+        <li><div class="btn btn-default" ng-click="next()"><i class="glyphicon glyphicon-circle-arrow-right"></i></div></li>
+    </ul>
+	<div class="col-sm-3 col-md-3">
+		<form class="navbar-form" role="search">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search" ng-model="slideshow.searchText">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit" ng-click="slideshow.search()"><i class="glyphicon glyphicon-search"></i></button>
+				</div>
+			</div>
+		</form>
+	</div>
+</nav>

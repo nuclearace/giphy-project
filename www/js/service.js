@@ -7,17 +7,17 @@
 
     GiphyService.$inject = ['$http']
 
-    /* @ngInject */
     function GiphyService($http) {
         this.$http = $http
     }
 
     GiphyService.prototype.search = function(term) {
+        var self = this
+
         var promise = new Promise((resolve, reject) => {
-            console.log(term)
-            this.$http.get('search/' + term).then(data => {
+            self.$http.get('search/' + term).then(data => {
                 resolve(data.data)
-            }, () => { reject() })
+            }, reject)
         })
 
         return promise

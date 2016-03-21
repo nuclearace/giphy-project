@@ -33,8 +33,17 @@ server.get(/search/, (req, res) => {
     var path = req.path.split('/')
     var searchTerm = path[path.length - 1]
 
-    console.log(searchTerm)
-    res.end(searchTerm)
+    giphy.search(searchTerm, (err, giphyRes) => {
+        if (err !== null) {
+            console.log('error searching giphy')
+            res.end("error")
+        } else if (giphyRes.data.length !== 0) {
+            var images = giphyRes.data.map((image) => { return image.images }).map((image) => { return image.original.url })
+            res.end(JSON.stringify(images))
+        } else {
+            res.end('error')
+        }
+    })
 })
 
 server.listen(8080)
