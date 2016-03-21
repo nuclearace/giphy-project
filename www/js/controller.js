@@ -14,7 +14,6 @@
         this.searchService = GiphyService
 
         $scope.previous = () => {
-            console.log('showing previous')
             if ($scope.currentIndex === 0) {
                 return $scope.results[0]
             } else {
@@ -24,18 +23,15 @@
         }
 
         $scope.next = () => {
-            console.log('showing next')
             if ($scope.currentIndex === $scope.results.length - 1) {
                 return
             } else {
                 $scope.currentIndex += 1
                 $scope.current = $scope.results[$scope.currentIndex]
-                console.log($scope.current)
             }
         }
 
-        $scope.current = $scope.results[0]
-        $scope.currentIndex = 0
+        this.search()
     }
 
     GiphySearchController.prototype.search = function() {
