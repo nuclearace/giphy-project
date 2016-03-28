@@ -35,14 +35,12 @@ server.get(/search/, (req, res) => {
     var searchTerm = path[path.length - 1]
 
     giphy.search(searchTerm, (err, giphyRes) => {
-        if (err !== null) {
+        if (err !== null || giphyRes.data.length === 0) {
             console.log('error searching giphy')
             res.end(error)
-        } else if (giphyRes.data.length !== 0) {
+        } else {
             var images = giphyRes.data.map((image) => { return image.images }).map((image) => { return image.original.url })
             res.end(JSON.stringify({error: false, images: images}))
-        } else {
-            res.end(error)
         }
     })
 })
