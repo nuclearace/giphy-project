@@ -41,8 +41,7 @@ server.get(/search/, (req, res) => {
         } else if (giphyRes.data.length !== 0) {
             var images = giphyRes.data.map((image) => { return image.images }).map((image) => { return image.original.url })
             res.end(JSON.stringify({error: false, images: images}))
-        }
-        else {
+        } else {
             res.end(error)
         }
     })
