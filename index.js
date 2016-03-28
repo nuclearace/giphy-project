@@ -39,7 +39,7 @@ server.get(/search/, (req, res) => {
             console.log('error searching giphy')
             res.end(error)
         } else {
-            var images = giphyRes.data.map((image) => { return image.images }).map((image) => { return image.original.url })
+            var images = giphyRes.data.map(image => { return image.images }).map(image => { return image.original.url })
             res.end(JSON.stringify({error: false, images: images}))
         }
     })
