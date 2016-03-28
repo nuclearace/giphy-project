@@ -15,7 +15,7 @@
 
         $scope.previous = () => {
             if ($scope.currentIndex === 0) {
-                return $scope.results[0]
+                return
             } else {
                 $scope.currentIndex -= 1
                 $scope.current = $scope.results[$scope.currentIndex]
