@@ -8,6 +8,7 @@
     GiphySearchController.$inject = ['$scope', 'GiphyService']
 
     function GiphySearchController($scope, GiphyService) {
+        $scope.error = false
         $scope.results = []
         this.searchText = 'pugs'
         this.$scope = $scope
@@ -39,7 +40,8 @@
 
         if (this.searchText !== '') {
             this.searchService.search(this.searchText).then(results => {
-                self.$scope.results = results
+                self.$scope.error = results.error
+                self.$scope.results = results.images
                 self.$scope.current = self.$scope.results[0]
                 self.$scope.currentIndex = 0
                 self.$scope.$apply()

@@ -1,6 +1,7 @@
 var fs = require('fs')
 var server = require('express')()
 var giphy = require('giphy-api')('dc6zaTOxFJmzC')
+var error = JSON.stringify({error: true, images: ['http://i.imgur.com/JZ6KWWl.gif']})
 
 server.get('/', (req, res) => {
     fs.readFile('./www/index.html', (err, data) => {
@@ -36,12 +37,13 @@ server.get(/search/, (req, res) => {
     giphy.search(searchTerm, (err, giphyRes) => {
         if (err !== null) {
             console.log('error searching giphy')
-            res.end('error')
+            res.end(error)
         } else if (giphyRes.data.length !== 0) {
             var images = giphyRes.data.map((image) => { return image.images }).map((image) => { return image.original.url })
-            res.end(JSON.stringify(images))
-        } else {
-            res.end('error')
+            res.end(JSON.stringify({error: false, images: images}))
+        }
+        else {
+            res.end(error)
         }
     })
 })
